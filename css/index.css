@@ -1,0 +1,68 @@
+html {
+  height: 100%;
+  width: 100%;
+  /*overflow: scroll;*/
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  background-image: url("../imgs/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+.container-fluid{
+  height:100%;
+  display:table;
+  width: 100%;
+  padding: 0;
+}
+
+.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+
+.centering {
+  float:none;
+  margin:5px auto;
+}
+.compareButton {
+  margin: 20px 0px 20px 0px;
+}
+
+#selectColor {
+  color: black;
+  background-color: white;
+}
+
+#comparePage {
+  color: black;
+  background-color: white;
+}
+
+.coverCSS {
+  height: 50%;
+  overflow: scroll;
+}
+
+#tableColor {
+  color: black;
+  margin-top: 10px;
+}
+
+#roundImg {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#marginCSS {
+  margin-top: 5px;
+  padding-bottom: 5px;
+}

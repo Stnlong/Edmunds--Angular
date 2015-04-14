@@ -1,0 +1,64 @@
+<div class="container-fluid" id="comparePage">
+    <div class="row-fluid">
+        <div ng-repeat="car in compare" class="text-center col-md-4">
+             <h4 id="tableColor"><span ng-bind="car.make"></span> <span ng-bind="car.model"></span></h4>
+        </div>
+
+		 <div ng-if="gotPics" ng-repeat="pic in gotPics" class="col-md-4">
+		     <img id="roundImg" class="center-block" ng-src="{{pic}}"></img></span>
+		 </div>
+		 <div>
+		 <div ng-repeat="(k, v) in trims" class="text-center col-md-4"><h5 id="tableColor">Select a Trim</h5>
+		 	<select ng-model="trimz" ng-options="trim.name for trim in trims[k].styles" ng-change="addToChart(trimz)" id="tableColor" class="form-control"></select><br>
+		 </div>
+		 <div>
+		 <table class="table table-striped" id="tableColor" ng-if="tableData.length>1">
+		       <thead>
+		         <tr>
+		           <th></th>
+		           <th ng-repeat="car in compare"><span ng-bind="car.make"></span> <span ng-bind="car.model"></span></th>
+		         </tr>
+		       </thead>
+		       <tbody>
+		       <tr>
+		         <th scope="row">Base MSRP</th>
+		         <th ng-repeat="car in tableData"><span ng-bind="car.price.baseMSRP"></span>
+		       </tr>
+		         <tr>
+		           <th scope="row">Cylinders</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.engine.cylinder"></span>
+		         </tr>
+		         <tr>
+		           <th scope="row">Drive Train</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.drivenWheels"></span>
+		         </tr>
+		         <tr>
+		           <th scope="row">Transmission</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.transmission.transmissionType"></span>
+		         </tr>
+		         <tr>
+		           <th scope="row">Engine Type</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.engine.type"></span>
+		         </tr>
+		         <tr>
+		           <th scope="row">Engine Size(Liters)</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.engine.size"></span>
+		         </tr>
+		         <tr>
+		           <th scope="row">Engine Aspiration</th>
+		           <th ng-repeat="car in tableData"><span ng-bind="car.engine.compressorType"></span>
+		         </tr>
+		       </tbody>
+		     </table>
+		     </div>
+		 <div ng-if="tableData.length>1" class="text-center col-xs-6 .col-md-1">
+		 	<highchart id="chart1" config="chartConfigMPG"></highchart>
+		 </div>
+		 <div ng-if="tableData.length>1" class="text-center col-xs-6 .col-md-1">
+		 	<highchart id="chart2" config="chartConfigHP"></highchart>
+		 </div> 	
+		 <div class="text-center">
+		 	<a href="#/" class="btn btn-danger" id="marginCSS" ng-click="reset(); compareReset()">Reset</a>
+		 </div>
+    </div>
+</div>
